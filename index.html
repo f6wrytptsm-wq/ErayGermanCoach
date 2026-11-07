@@ -6,7 +6,6 @@
 <title>Eray German Coach</title>
 
 <style>
-
 body{
 font-family:Arial,sans-serif;
 background:#f4f4f4;
@@ -15,12 +14,12 @@ text-align:center;
 }
 
 .container{
-max-width:700px;
+max-width:800px;
 margin:auto;
 background:white;
 padding:20px;
 border-radius:15px;
-box-shadow:0 0 12px rgba(0,0,0,.15);
+box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
 
 button{
@@ -48,18 +47,15 @@ font-size:18px;
 font-weight:bold;
 }
 
-#speechResult{
-margin-top:15px;
-font-size:18px;
-font-weight:bold;
-}
-
 .stats{
 margin-top:20px;
 font-size:18px;
 line-height:2;
 }
 
+.mode{
+margin-bottom:15px;
+}
 </style>
 </head>
 
@@ -68,6 +64,18 @@ line-height:2;
 <div class="container">
 
 <h1>🇩🇪 Eray German Coach</h1>
+
+<div class="mode">
+
+<button onclick="setMode('de-tr')">
+🇩🇪 → 🇹🇷
+</button>
+
+<button onclick="setMode('tr-de')">
+🇹🇷 → 🇩🇪
+</button>
+
+</div>
 
 <div>
 
@@ -80,13 +88,19 @@ line-height:2;
 
 </div>
 
-<h3 id="currentLevel">Seviye: A2</h3>
+<h3 id="currentLevel">
+Seviye: A2
+</h3>
+
+<h3 id="currentMode">
+Mod: 🇩🇪 → 🇹🇷
+</h3>
 
 <div id="sentence"></div>
 
 <input
 id="answer"
-placeholder="Türkçe anlamını yaz">
+placeholder="Cevabını yaz">
 
 <br><br>
 
@@ -94,13 +108,7 @@ placeholder="Türkçe anlamını yaz">
 ✅ Kontrol Et
 </button>
 
-<button onclick="startSpeech()">
-🎤 Konuş
-</button>
-
 <div id="result"></div>
-
-<div id="speechResult"></div>
 
 <div class="stats">
 
@@ -129,30 +137,56 @@ Başarı:
 <script>
 
 let data=[];
-
 let current=0;
 
 let puan=0;
 let dogru=0;
 let yanlis=0;
 
+let mode="de-tr";
+
+function setMode(newMode){
+
+mode=newMode;
+
+if(mode==="de-tr"){
+
+document.getElementById(
+"currentMode"
+).innerHTML=
+"Mod: 🇩🇪 → 🇹🇷";
+
+}else{
+
+document.getElementById(
+"currentMode"
+).innerHTML=
+"Mod: 🇹🇷 → 🇩🇪";
+
+}
+
+newQuestion();
+
+}
+
 async function loadLevel(file){
 
 const text =
 await fetch(file).then(r=>r.text());
 
-data = text
+data=text
 .split("\n")
 .filter(x=>x.includes("|"))
 .map(x=>x.split("|"));
 
 document.getElementById(
 "currentLevel"
-).innerHTML =
-"Seviye: " +
+).innerHTML=
+"Seviye: "+
 file.replace(".txt","");
 
 newQuestion();
+
 }
 
 function clean(text){
@@ -161,21 +195,33 @@ return text
 .toLowerCase()
 .replace(/[.,!?;:]/g,"")
 .trim();
+
 }
 
 function newQuestion(){
 
 if(data.length===0)return;
 
-current =
+current=
 Math.floor(
 Math.random()*data.length
 );
 
+if(mode==="de-tr"){
+
 document.getElementById(
 "sentence"
-).innerHTML =
+).innerHTML=
 data[current][0];
+
+}else{
+
+document.getElementById(
+"sentence"
+).innerHTML=
+data[current][1];
+
+}
 
 document.getElementById(
 "answer"
@@ -185,14 +231,14 @@ document.getElementById(
 
 function updateStats(){
 
-let toplam =
-dogru + yanlis;
+let toplam=
+dogru+yanlis;
 
-let basari = 0;
+let basari=0;
 
 if(toplam>0){
 
-basari =
+basari=
 ((dogru/toplam)*100)
 .toFixed(1);
 
@@ -219,17 +265,30 @@ basari+"%";
 
 function checkAnswer(){
 
-let cevap =
+let cevap=
 clean(
 document.getElementById(
 "answer"
 ).value
 );
 
-let dogruCevap =
+let dogruCevap="";
+
+if(mode==="de-tr"){
+
+dogruCevap=
 clean(
 data[current][1]
 );
+
+}else{
+
+dogruCevap=
+clean(
+data[current][0]
+);
+
+}
 
 if(cevap===dogruCevap){
 
@@ -253,8 +312,8 @@ yanlis++;
 document.getElementById(
 "result"
 ).innerHTML=
-"❌ Doğru cevap: "
-+ data[current][1];
+"❌ Doğru cevap: "+
+dogruCevap;
 
 document.getElementById(
 "result"
@@ -269,83 +328,6 @@ setTimeout(
 newQuestion,
 1500
 );
-
-}
-
-function startSpeech(){
-
-const SpeechRecognition =
-window.SpeechRecognition ||
-window.webkitSpeechRecognition;
-
-if(!SpeechRecognition){
-
-alert(
-"Tarayıcı konuşma özelliğini desteklemiyor."
-);
-
-return;
-}
-
-const recognition =
-new SpeechRecognition();
-
-recognition.lang =
-"de-DE";
-
-recognition.start();
-
-recognition.onresult =
-function(event){
-
-let spoken =
-clean(
-event.results[0][0]
-.transcript
-);
-
-let correct =
-clean(
-data[current][0]
-);
-
-if(spoken===correct){
-
-puan+=10;
-dogru++;
-
-document.getElementById(
-"speechResult"
-).innerHTML=
-"✅ Doğru söyledin";
-
-document.getElementById(
-"speechResult"
-).style.color=
-"green";
-
-}else{
-
-yanlis++;
-
-document.getElementById(
-"speechResult"
-).innerHTML=
-"❌ Sen söyledin: "
-+ spoken
-+ "<br><br>Doğru cevap: "
-+ data[current][0];
-
-document.getElementById(
-"speechResult"
-).style.color=
-"red";
-
-}
-
-updateStats();
-
-};
 
 }
 
