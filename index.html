@@ -1,168 +1,18 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Eray German Coach</title>
-
-<style>
-body{
-font-family:Arial,sans-serif;
-background:#f4f4f4;
-margin:0;
-padding:20px;
-text-align:center;
-}
-
-.container{
-max-width:700px;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 0 10px rgba(0,0,0,.1);
-}
-
-h1{
-color:#2c3e50;
-}
-
-#sentence{
-font-size:28px;
-margin:25px 0;
-font-weight:bold;
-}
-
-input{
-width:90%;
-padding:12px;
-font-size:18px;
-}
-
-button{
-padding:12px 20px;
-font-size:16px;
-margin-top:10px;
-cursor:pointer;
-}
-
-#result{
-margin-top:15px;
-font-weight:bold;
-font-size:18px;
-}
-
-.stats{
-margin-top:20px;
-font-size:18px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>Eray German Coach</h1>
-
-<div id="sentence"></div>
-
-<input id="answer" placeholder="Türkçe anlamını yaz">
-
-<br>
-
-<button onclick="checkAnswer()">
-Kontrol Et
-</button>
-
-<div id="result"></div>
-
-<div class="stats">
-Puan: <span id="puan">0</span><br>
-Doğru: <span id="dogru">0</span><br>
-Yanlış: <span id="yanlis">0</span>
-</div>
-
-</div>
-
-<script>
-
-const data = [
-
-["Wie geht es dir?","Nasılsın?"],
-["Mir geht es gut.","İyiyim."],
-["Und dir?","Ya sen?"],
-["Guten Morgen.","Günaydın."],
-["Guten Tag.","İyi günler."],
-["Guten Abend.","İyi akşamlar."],
-["Gute Nacht.","İyi geceler."],
-["Auf Wiedersehen.","Hoşça kal."]
-
-];
+let data = [];
 
 let current=0;
 let puan=0;
 let dogru=0;
 let yanlis=0;
 
-function newQuestion(){
+async function loadLevel(file){
 
-current=Math.floor(Math.random()*data.length);
+const text = await fetch(file).then(r=>r.text());
 
-document.getElementById("sentence").innerText=
-data[current][0];
-
-document.getElementById("answer").value="";
-}
-
-function clean(text){
-
-return text
-.toLowerCase()
-.replace(/[.,!?;:]/g,"")
-.trim();
-}
-
-function checkAnswer(){
-
-let cevap=
-clean(document.getElementById("answer").value);
-
-let dogruCevap=
-clean(data[current][1]);
-
-if(cevap===dogruCevap){
-
-puan+=10;
-dogru++;
-
-document.getElementById("result").innerHTML=
-"✅ Doğru";
-
-document.getElementById("result").style.color=
-"green";
-
-}else{
-
-yanlis++;
-
-document.getElementById("result").innerHTML=
-"❌ Doğru cevap: "+data[current][1];
-
-document.getElementById("result").style.color=
-"red";
-}
-
-document.getElementById("puan").innerText=puan;
-document.getElementById("dogru").innerText=dogru;
-document.getElementById("yanlis").innerText=yanlis;
-
-setTimeout(newQuestion,1500);
-}
+data = text
+.split("\n")
+.filter(line=>line.includes("|"))
+.map(line=>line.split("|"));
 
 newQuestion();
-
-</script>
-
-</body>
-</html>
+}
