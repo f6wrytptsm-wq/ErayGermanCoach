@@ -2,10 +2,11 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eray German Coach</title>
 
 <style>
+
 body{
 font-family:Arial,sans-serif;
 background:#f4f4f4;
@@ -14,43 +15,30 @@ text-align:center;
 }
 
 .container{
-max-width:800px;
+max-width:700px;
 margin:auto;
 background:white;
 padding:20px;
 border-radius:15px;
-box-shadow:0 0 10px rgba(0,0,0,0.15);
+box-shadow:0 0 12px rgba(0,0,0,.15);
 }
 
-h1{
-color:#2c3e50;
-}
-
-.levels{
-margin-bottom:20px;
-}
-
-.levels button{
-margin:4px;
+button{
 padding:10px 15px;
+margin:4px;
 font-size:16px;
+cursor:pointer;
 }
 
 #sentence{
 font-size:28px;
 font-weight:bold;
-margin:20px;
+margin:25px 0;
 }
 
 input{
 width:90%;
 padding:12px;
-font-size:18px;
-}
-
-.mainbtn{
-padding:12px 20px;
-margin-top:10px;
 font-size:18px;
 }
 
@@ -60,11 +48,18 @@ font-size:18px;
 font-weight:bold;
 }
 
+#speechResult{
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+}
+
 .stats{
 margin-top:20px;
-line-height:2;
 font-size:18px;
+line-height:2;
 }
+
 </style>
 </head>
 
@@ -74,18 +69,13 @@ font-size:18px;
 
 <h1>🇩🇪 Eray German Coach</h1>
 
-<div class="levels">
+<div>
 
 <button onclick="loadLevel('a2.txt')">A2</button>
-
 <button onclick="loadLevel('a2plus.txt')">A2+</button>
-
 <button onclick="loadLevel('b1.txt')">B1</button>
-
 <button onclick="loadLevel('b1plus.txt')">B1+</button>
-
 <button onclick="loadLevel('b2.txt')">B2</button>
-
 <button onclick="loadLevel('b2plus.txt')">B2+</button>
 
 </div>
@@ -98,17 +88,19 @@ font-size:18px;
 id="answer"
 placeholder="Türkçe anlamını yaz">
 
-<br>
+<br><br>
 
-<button
-class="mainbtn"
-onclick="checkAnswer()">
+<button onclick="checkAnswer()">
+✅ Kontrol Et
+</button>
 
-Kontrol Et
-
+<button onclick="startSpeech()">
+🎤 Konuş
 </button>
 
 <div id="result"></div>
+
+<div id="speechResult"></div>
 
 <div class="stats">
 
@@ -146,15 +138,19 @@ let yanlis=0;
 
 async function loadLevel(file){
 
-const text = await fetch(file).then(r=>r.text());
-
-document.getElementById("currentLevel").innerHTML =
-"Seviye: " + file.replace(".txt","");
+const text =
+await fetch(file).then(r=>r.text());
 
 data = text
 .split("\n")
-.filter(line=>line.includes("|"))
-.map(line=>line.split("|"));
+.filter(x=>x.includes("|"))
+.map(x=>x.split("|"));
+
+document.getElementById(
+"currentLevel"
+).innerHTML =
+"Seviye: " +
+file.replace(".txt","");
 
 newQuestion();
 }
@@ -171,70 +167,100 @@ function newQuestion(){
 
 if(data.length===0)return;
 
-current=Math.floor(
+current =
+Math.floor(
 Math.random()*data.length
 );
 
-document.getElementById("sentence").innerText =
+document.getElementById(
+"sentence"
+).innerHTML =
 data[current][0];
 
-document.getElementById("answer").value="";
+document.getElementById(
+"answer"
+).value="";
+
 }
 
 function updateStats(){
 
-let toplam = dogru + yanlis;
+let toplam =
+dogru + yanlis;
 
 let basari = 0;
 
 if(toplam>0){
-basari=
-((dogru/toplam)*100).toFixed(1);
+
+basari =
+((dogru/toplam)*100)
+.toFixed(1);
+
 }
 
-document.getElementById("puan").innerText=puan;
+document.getElementById(
+"puan"
+).innerHTML=puan;
 
-document.getElementById("dogru").innerText=dogru;
+document.getElementById(
+"dogru"
+).innerHTML=dogru;
 
-document.getElementById("yanlis").innerText=yanlis;
+document.getElementById(
+"yanlis"
+).innerHTML=yanlis;
 
-document.getElementById("basari").innerText=
-basari + "%";
+document.getElementById(
+"basari"
+).innerHTML=
+basari+"%";
+
 }
 
 function checkAnswer(){
 
-let cevap=
+let cevap =
 clean(
-document.getElementById("answer").value
+document.getElementById(
+"answer"
+).value
 );
 
-let dogruCevap=
-clean(data[current][1]);
+let dogruCevap =
+clean(
+data[current][1]
+);
 
 if(cevap===dogruCevap){
 
 puan+=10;
 dogru++;
 
-document.getElementById("result")
-.innerHTML="✅ Doğru";
+document.getElementById(
+"result"
+).innerHTML=
+"✅ Doğru";
 
-document.getElementById("result")
-.style.color="green";
+document.getElementById(
+"result"
+).style.color=
+"green";
 
-}
-else{
+}else{
 
 yanlis++;
 
-document.getElementById("result")
-.innerHTML=
+document.getElementById(
+"result"
+).innerHTML=
 "❌ Doğru cevap: "
 + data[current][1];
 
-document.getElementById("result")
-.style.color="red";
+document.getElementById(
+"result"
+).style.color=
+"red";
+
 }
 
 updateStats();
@@ -243,6 +269,84 @@ setTimeout(
 newQuestion,
 1500
 );
+
+}
+
+function startSpeech(){
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+if(!SpeechRecognition){
+
+alert(
+"Tarayıcı konuşma özelliğini desteklemiyor."
+);
+
+return;
+}
+
+const recognition =
+new SpeechRecognition();
+
+recognition.lang =
+"de-DE";
+
+recognition.start();
+
+recognition.onresult =
+function(event){
+
+let spoken =
+clean(
+event.results[0][0]
+.transcript
+);
+
+let correct =
+clean(
+data[current][0]
+);
+
+if(spoken===correct){
+
+puan+=10;
+dogru++;
+
+document.getElementById(
+"speechResult"
+).innerHTML=
+"✅ Doğru söyledin";
+
+document.getElementById(
+"speechResult"
+).style.color=
+"green";
+
+}else{
+
+yanlis++;
+
+document.getElementById(
+"speechResult"
+).innerHTML=
+"❌ Sen söyledin: "
++ spoken
++ "<br><br>Doğru cevap: "
++ data[current][0];
+
+document.getElementById(
+"speechResult"
+).style.color=
+"red";
+
+}
+
+updateStats();
+
+};
+
 }
 
 loadLevel("a2.txt");
