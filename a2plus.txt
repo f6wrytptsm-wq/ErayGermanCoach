@@ -1,0 +1,130 @@
+Was hast du gestern gemacht?|Dün ne yaptın?
+Ich habe einen Film gesehen.|Bir film izledim.
+Ich habe lange geschlafen.|Uzun süre uyudum.
+Ich war zu Hause.|Evdeydim.
+Ich war mit Freunden unterwegs.|Arkadaşlarımla dışarıdaydım.
+Wie war dein Wochenende?|Hafta sonun nasıldı?
+Es war sehr schön.|Çok güzeldi.
+Es war langweilig.|Sıkıcıydı.
+Was möchtest du trinken?|Ne içmek istersin?
+Ich hätte gern einen Tee.|Bir çay isterim.
+Ich hätte gern einen Kaffee.|Bir kahve isterim.
+Hast du Geschwister?|Kardeşlerin var mı?
+Ja, ich habe einen Bruder.|Evet, bir erkek kardeşim var.
+Ja, ich habe eine Schwester.|Evet, bir kız kardeşim var.
+Nein, ich bin Einzelkind.|Hayır, tek çocuğum.
+Wie lange lernst du Deutsch?|Ne kadar zamandır Almanca öğreniyorsun?
+Seit einem Jahr.|Bir yıldır.
+Seit zwei Jahren.|İki yıldır.
+Was sind deine Hobbys?|Hobilerin neler?
+Ich höre gerne Musik.|Müzik dinlemeyi severim.
+Ich spiele gerne Fußball.|Futbol oynamayı severim.
+Ich lese gern Bücher.|Kitap okumayı severim.
+Ich sehe gern Serien.|Dizi izlemeyi severim.
+Kommst du morgen mit?|Yarın geliyor musun?
+Ja, gerne.|Evet, memnuniyetle.
+Leider habe ich keine Zeit.|Maalesef vaktim yok.
+Vielleicht später.|Belki daha sonra.
+Wann beginnt der Kurs?|Kurs ne zaman başlıyor?
+Um neun Uhr.|Saat dokuzda.
+Um zehn Uhr.|Saat onda.
+Ich habe meine Schlüssel verloren.|Anahtarlarımı kaybettim.
+Ich suche mein Handy.|Telefonumu arıyorum.
+Kannst du mir einen Rat geben?|Bana bir tavsiye verebilir misin?
+Das ist eine gute Idee.|Bu iyi bir fikir.
+Ich bin nicht sicher.|Emin değilim.
+Meiner Meinung nach ist das richtig.|Bana göre bu doğru.
+Ich glaube das nicht.|Buna inanmıyorum.
+Das kann passieren.|Bu olabilir.
+Mach dir keine Sorgen.|Endişelenme.
+Was denkst du darüber?|Bu konuda ne düşünüyorsun?
+Das gefällt mir.|Bu hoşuma gidiyor.
+Das gefällt mir nicht.|Bu hoşuma gitmiyor.
+Ich verstehe deine Meinung.|Senin görüşünü anlıyorum.
+Ich stimme dir zu.|Sana katılıyorum.
+Ich bin anderer Meinung.|Farklı düşünüyorum.
+Das ist interessant.|Bu ilginç.
+Das klingt gut.|Bu kulağa hoş geliyor.
+Das klingt komisch.|Bu tuhaf geliyor.
+Erzähl mir mehr.|Bana daha fazlasını anlat.
+Was ist passiert?|Ne oldu?
+Keine Ahnung.|Hiçbir fikrim yok.
+Das weiß ich nicht.|Bunu bilmiyorum.
+Frag mich später.|Bana sonra sor.
+Ich brauche etwas Zeit.|Biraz zamana ihtiyacım var.
+Das ist kein Problem.|Bu sorun değil.
+Ich verstehe deinen Punkt.|Ne demek istediğini anlıyorum.
+Du hast recht.|Haklısın.
+Vielleicht hast du recht.|Belki haklısın.
+Das stimmt nicht.|Bu doğru değil.
+Ich bin einverstanden.|Kabul ediyorum.
+Ich bin dagegen.|Buna karşıyım.
+Wann hast du Geburtstag?|Doğum günün ne zaman?
+Mein Geburtstag ist im Mai.|Doğum günüm mayıs ayında.
+Feierst du deinen Geburtstag?|Doğum gününü kutluyor musun?
+Natürlich.|Elbette.
+Mit wem warst du dort?|Orada kiminleydin?
+Ich war allein.|Yalnızdım.
+Ich war mit meiner Familie dort.|Ailemle oradaydım.
+Wie lange bleibst du hier?|Burada ne kadar kalacaksın?
+Nur ein paar Tage.|Sadece birkaç gün.
+Ich bleibe eine Woche.|Bir hafta kalacağım.
+Das war eine Überraschung.|Bu bir sürprizdi.
+Ich freue mich sehr.|Çok seviniyorum.
+Ich bin enttäuscht.|Hayal kırıklığına uğradım.
+Das macht Spaß.|Bu eğlenceli.
+Das ist schwierig.|Bu zor.
+Das ist einfach.|Bu kolay.
+Kannst du das erklären?|Bunu açıklayabilir misin?
+Ich versuche es.|Deneyeceğim.
+Ich gebe mein Bestes.|Elimden gelenin en iyisini yapıyorum.
+Das ist eine Herausforderung.|Bu bir meydan okuma.
+Ich bin beschäftigt.|Meşgulüm.
+Ich habe heute viel zu tun.|Bugün çok işim var.
+Ich bin fertig.|Bitirdim.
+Ich brauche eine Pause.|Molaya ihtiyacım var.
+Lass uns anfangen.|Başlayalım.
+Lass uns gehen.|Gidelim.
+Komm mit mir.|Benimle gel.
+Warte einen Moment.|Bir dakika bekle.
+Ich komme sofort.|Hemen geliyorum.
+Sei vorsichtig.|Dikkatli ol.
+Pass auf.|Dikkat et.
+Viel Glück.|Bol şans.
+Herzlichen Glückwunsch.|Tebrikler.
+Alles Gute.|Her şey gönlünce olsun.
+Gute Besserung.|Geçmiş olsun.
+Frohe Weihnachten.|Mutlu Noeller.
+Frohes neues Jahr.|Mutlu yıllar.
+Wie spät ist es?|Saat kaç?
+Es ist halb acht.|Saat yedi buçuk.
+Es ist Viertel nach drei.|Saat üçü çeyrek geçiyor.
+Es ist Viertel vor vier.|Saat dörde çeyrek var.
+Wann treffen wir uns?|Ne zaman buluşuyoruz?
+Heute Abend.|Bu akşam.
+Morgen Nachmittag.|Yarın öğleden sonra.
+Nächste Woche.|Gelecek hafta.
+Ich freue mich darauf.|Bunu sabırsızlıkla bekliyorum.
+Das wird bestimmt schön.|Bu kesin güzel olacak.
+Ich hoffe es.|Umarım.
+Mal sehen.|Göreceğiz.
+Lass uns darüber nachdenken.|Bunu düşünelim.
+Wie läuft es?|Nasıl gidiyor?
+Alles läuft gut.|Her şey iyi gidiyor.
+Nicht so gut.|Pek iyi değil.
+Ich habe viel gelernt.|Çok şey öğrendim.
+Ich habe einen Fehler gemacht.|Bir hata yaptım.
+Das war meine Schuld.|Bu benim hatamdı.
+Kein Stress.|Stres yok.
+Entspann dich.|Rahatla.
+Ich bin stolz auf dich.|Seninle gurur duyuyorum.
+Danke für deine Hilfe.|Yardımın için teşekkür ederim.
+Danke für deine Zeit.|Zamanın için teşekkür ederim.
+Es war nett, dich zu sehen.|Seni görmek güzeldi.
+Wir sehen uns bald.|Yakında görüşürüz.
+Bis nächste Woche.|Gelecek hafta görüşürüz.
+Pass gut auf dich auf.|Kendine iyi bak.
+Hab einen schönen Tag.|İyi günler geçir.
+Hab einen schönen Abend.|İyi akşamlar geçir.
+Schlaf gut.|İyi uyu.
+Träum was Schönes.|Güzel şeyler rüyanda gör.

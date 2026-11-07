@@ -1,0 +1,99 @@
+Wie geht es dir?|Nasılsın?
+Mir geht es gut.|İyiyim.
+Und dir?|Ya sen?
+Guten Morgen.|Günaydın.
+Guten Tag.|İyi günler.
+Guten Abend.|İyi akşamlar.
+Gute Nacht.|İyi geceler.
+Auf Wiedersehen.|Hoşça kal.
+Bis bald.|Yakında görüşürüz.
+Bis morgen.|Yarın görüşürüz.
+Wie heißt du?|Adın ne?
+Ich heiße Eray.|Benim adım Eray.
+Woher kommst du?|Nerelisin?
+Ich komme aus der Türkei.|Türkiye'den geliyorum.
+Wo wohnst du?|Nerede oturuyorsun?
+Ich wohne in Deutschland.|Almanya'da yaşıyorum.
+Wie alt bist du?|Kaç yaşındasın?
+Ich bin zwanzig Jahre alt.|Yirmi yaşındayım.
+Was machst du?|Ne yapıyorsun?
+Ich lerne Deutsch.|Almanca öğreniyorum.
+Ich bin müde.|Yorgunum.
+Ich habe Hunger.|Açım.
+Ich habe Durst.|Susadım.
+Ich habe keine Zeit.|Zamanım yok.
+Ich habe viel Zeit.|Çok zamanım var.
+Ich bin zu Hause.|Evdeyim.
+Ich bin unterwegs.|Yoldayım.
+Ich arbeite heute.|Bugün çalışıyorum.
+Ich habe Urlaub.|Tatildeyim.
+Kannst du mir helfen?|Bana yardım edebilir misin?
+Natürlich.|Tabii ki.
+Kein Problem.|Sorun değil.
+Vielen Dank.|Çok teşekkür ederim.
+Gern geschehen.|Rica ederim.
+Entschuldigung.|Afedersiniz.
+Es tut mir leid.|Üzgünüm.
+Alles klar.|Tamamdır.
+Ich verstehe.|Anlıyorum.
+Ich verstehe nicht.|Anlamıyorum.
+Kannst du das wiederholen?|Bunu tekrar edebilir misin?
+Sprich bitte langsamer.|Lütfen daha yavaş konuş.
+Wie bitte?|Efendim?
+Was bedeutet das?|Bu ne anlama geliyor?
+Ich spreche ein wenig Deutsch.|Biraz Almanca konuşuyorum.
+Ich spreche nicht gut Deutsch.|Almancayı iyi konuşamıyorum.
+Wo ist die Toilette?|Tuvalet nerede?
+Wo ist der Bahnhof?|Tren istasyonu nerede?
+Wo ist die Bushaltestelle?|Otobüs durağı nerede?
+Wo ist das Hotel?|Otel nerede?
+Wie komme ich dorthin?|Oraya nasıl giderim?
+Links.|Sol.
+Rechts.|Sağ.
+Geradeaus.|Dümdüz.
+Hier.|Burada.
+Dort.|Orada.
+Wie viel kostet das?|Bu ne kadar?
+Das ist zu teuer.|Bu çok pahalı.
+Haben Sie etwas günstigeres?|Daha ucuzu var mı?
+Ich nehme das.|Bunu alıyorum.
+Kann ich mit Karte bezahlen?|Kartla ödeyebilir miyim?
+Ich möchte bezahlen.|Ödeme yapmak istiyorum.
+Haben Sie Wechselgeld?|Bozuk paranız var mı?
+Ich schaue nur.|Sadece bakıyorum.
+Das gefällt mir.|Bu hoşuma gitti.
+Das gefällt mir nicht.|Bu hoşuma gitmedi.
+Ich möchte einen Kaffee.|Bir kahve istiyorum.
+Ich möchte Wasser.|Su istiyorum.
+Ich möchte etwas essen.|Bir şeyler yemek istiyorum.
+Die Rechnung bitte.|Hesap lütfen.
+Das Essen war lecker.|Yemek lezzetliydi.
+Ich bin satt.|Doydum.
+Was machst du heute?|Bugün ne yapıyorsun?
+Ich gehe einkaufen.|Alışverişe gidiyorum.
+Ich gehe spazieren.|Yürüyüşe çıkıyorum.
+Ich sehe fern.|Televizyon izliyorum.
+Ich höre Musik.|Müzik dinliyorum.
+Ich lese ein Buch.|Kitap okuyorum.
+Ich spiele Fußball.|Futbol oynuyorum.
+Ich lerne für die Schule.|Okul için çalışıyorum.
+Wann hast du Zeit?|Ne zaman müsaitsin?
+Heute Abend.|Bu akşam.
+Morgen früh.|Yarın sabah.
+Nächste Woche.|Gelecek hafta.
+Ich komme später.|Daha sonra geleceğim.
+Ich bin schon da.|Ben zaten geldim.
+Warte bitte.|Lütfen bekle.
+Beeil dich.|Acele et.
+Alles ist in Ordnung.|Her şey yolunda.
+Ich bin glücklich.|Mutluyum.
+Ich bin nervös.|Gerginim.
+Ich bin krank.|Hastayım.
+Mir geht es besser.|Daha iyiyim.
+Ich brauche Hilfe.|Yardıma ihtiyacım var.
+Das ist wichtig.|Bu önemli.
+Das ist interessant.|Bu ilginç.
+Das ist eine gute Idee.|Bu iyi bir fikir.
+Ich denke schon.|Öyle düşünüyorum.
+Vielleicht.|Belki.
+Natürlich nicht.|Tabii ki hayır.
