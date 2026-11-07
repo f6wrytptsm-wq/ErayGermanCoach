@@ -1,6 +1,145 @@
-let data = [];
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eray German Coach</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f4f4;
+padding:20px;
+text-align:center;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 0 10px rgba(0,0,0,0.15);
+}
+
+h1{
+color:#2c3e50;
+}
+
+.levels{
+margin-bottom:20px;
+}
+
+.levels button{
+margin:4px;
+padding:10px 15px;
+font-size:16px;
+}
+
+#sentence{
+font-size:28px;
+font-weight:bold;
+margin:20px;
+}
+
+input{
+width:90%;
+padding:12px;
+font-size:18px;
+}
+
+.mainbtn{
+padding:12px 20px;
+margin-top:10px;
+font-size:18px;
+}
+
+#result{
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+}
+
+.stats{
+margin-top:20px;
+line-height:2;
+font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🇩🇪 Eray German Coach</h1>
+
+<div class="levels">
+
+<button onclick="loadLevel('a2.txt')">A2</button>
+
+<button onclick="loadLevel('a2plus.txt')">A2+</button>
+
+<button onclick="loadLevel('b1.txt')">B1</button>
+
+<button onclick="loadLevel('b1plus.txt')">B1+</button>
+
+<button onclick="loadLevel('b2.txt')">B2</button>
+
+<button onclick="loadLevel('b2plus.txt')">B2+</button>
+
+</div>
+
+<h3 id="currentLevel">Seviye: A2</h3>
+
+<div id="sentence"></div>
+
+<input
+id="answer"
+placeholder="Türkçe anlamını yaz">
+
+<br>
+
+<button
+class="mainbtn"
+onclick="checkAnswer()">
+
+Kontrol Et
+
+</button>
+
+<div id="result"></div>
+
+<div class="stats">
+
+Puan:
+<span id="puan">0</span>
+
+<br>
+
+Doğru:
+<span id="dogru">0</span>
+
+<br>
+
+Yanlış:
+<span id="yanlis">0</span>
+
+<br>
+
+Başarı:
+<span id="basari">0%</span>
+
+</div>
+
+</div>
+
+<script>
+
+let data=[];
 
 let current=0;
+
 let puan=0;
 let dogru=0;
 let yanlis=0;
@@ -9,6 +148,9 @@ async function loadLevel(file){
 
 const text = await fetch(file).then(r=>r.text());
 
+document.getElementById("currentLevel").innerHTML =
+"Seviye: " + file.replace(".txt","");
+
 data = text
 .split("\n")
 .filter(line=>line.includes("|"))
@@ -16,3 +158,96 @@ data = text
 
 newQuestion();
 }
+
+function clean(text){
+
+return text
+.toLowerCase()
+.replace(/[.,!?;:]/g,"")
+.trim();
+}
+
+function newQuestion(){
+
+if(data.length===0)return;
+
+current=Math.floor(
+Math.random()*data.length
+);
+
+document.getElementById("sentence").innerText =
+data[current][0];
+
+document.getElementById("answer").value="";
+}
+
+function updateStats(){
+
+let toplam = dogru + yanlis;
+
+let basari = 0;
+
+if(toplam>0){
+basari=
+((dogru/toplam)*100).toFixed(1);
+}
+
+document.getElementById("puan").innerText=puan;
+
+document.getElementById("dogru").innerText=dogru;
+
+document.getElementById("yanlis").innerText=yanlis;
+
+document.getElementById("basari").innerText=
+basari + "%";
+}
+
+function checkAnswer(){
+
+let cevap=
+clean(
+document.getElementById("answer").value
+);
+
+let dogruCevap=
+clean(data[current][1]);
+
+if(cevap===dogruCevap){
+
+puan+=10;
+dogru++;
+
+document.getElementById("result")
+.innerHTML="✅ Doğru";
+
+document.getElementById("result")
+.style.color="green";
+
+}
+else{
+
+yanlis++;
+
+document.getElementById("result")
+.innerHTML=
+"❌ Doğru cevap: "
++ data[current][1];
+
+document.getElementById("result")
+.style.color="red";
+}
+
+updateStats();
+
+setTimeout(
+newQuestion,
+1500
+);
+}
+
+loadLevel("a2.txt");
+
+</script>
+
+</body>
+</html>
