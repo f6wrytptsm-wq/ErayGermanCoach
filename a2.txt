@@ -3,6 +3,27 @@ Ich bin unterwegs.|Yoldayım.
 Ich arbeite heute.|Bugün çalışıyorum.
 Ich habe Urlaub.|Tatildeyim.
 Kannst du mir helfen?|Bana yardım edebilir misin?
-
-
-
+Keine Ursache.|Önemli değil.
+Das ist mir neu.|Bu benim için yeni.
+Ich bin gespannt.|Merak ediyorum.
+Das passt perfekt.|Bu tam uyuyor.
+Ich habe mich geirrt.|Yanılmışım.
+Das war knapp.|Kıl payı oldu.
+Das ist ungewöhnlich.|Bu alışılmadık.
+Ich habe es eilig.|Acele ediyorum.
+Das macht Sinn.|Bu mantıklı.
+Ich bin überrascht.|Şaşırdım.
+Das sieht gut aus.|İyi görünüyor.
+Ich bin bereit.|Hazırım.
+Das reicht aus.|Bu yeterli.
+Ich habe es geschafft.|Başardım.
+Das ist seltsam.|Bu garip.
+Ich bin dagegen.|Buna karşıyım.
+Das funktioniert nicht.|Bu çalışmıyor.
+Ich bin dafür.|Bunun yanındayım.
+Das ist praktisch.|Bu kullanışlı.
+Ich habe es bemerkt.|Bunu fark ettim.
+Das kommt selten vor.|Bu nadiren olur.
+Ich bin ehrlich gesagt müde.|Dürüst olmak gerekirse yorgunum.
+Das interessiert mich.|Bu ilgimi çekiyor.
+Ich freue mich darauf.|Bunu sabırsızlıkla bekliyorum.
