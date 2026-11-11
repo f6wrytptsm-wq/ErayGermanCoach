@@ -1,8 +1,12 @@
 import os
-
-print(os.getcwd())
 import tkinter as tk
 import random
+import threading
+
+from gtts import gTTS
+from playsound import playsound
+
+print(os.getcwd())
 
 SEVIYELER = {
     "A2": "a2.txt",
@@ -29,6 +33,9 @@ class Uygulama:
         self.seviye = "A2"
 
         self.cumleler = []
+
+        self.almanca = ""
+        self.turkce = ""
 
         baslik = tk.Label(
             root,
@@ -80,12 +87,20 @@ class Uygulama:
         )
         self.cumle_label.pack(pady=20)
 
+        self.ses_btn = tk.Button(
+            root,
+            text="🔊 Almanca Oku",
+            font=("Arial", 12),
+            command=self.cumleyi_oku
+        )
+        self.ses_btn.pack()
+
         self.giris = tk.Entry(
             root,
             font=("Arial", 16),
             width=50
         )
-        self.giris.pack()
+        self.giris.pack(pady=10)
 
         self.giris.bind(
             "<Return>",
@@ -98,7 +113,6 @@ class Uygulama:
             font=("Arial", 12),
             command=self.kontrol
         )
-
         self.kontrol_buton.pack(pady=10)
 
         self.sonuc = tk.Label(
@@ -106,11 +120,40 @@ class Uygulama:
             text="",
             font=("Arial", 14)
         )
-
         self.sonuc.pack()
 
         self.cumleleri_yukle()
         self.yeni_soru()
+
+    def sesi_oku(self, metin):
+
+        def oynat():
+
+            try:
+
+                tts = gTTS(
+                    text=metin,
+                    lang="de"
+                )
+
+                dosya = "ses.mp3"
+
+                tts.save(dosya)
+
+                playsound(dosya)
+
+            except Exception as hata:
+                print("Ses hatası:", hata)
+
+        threading.Thread(
+            target=oynat,
+            daemon=True
+        ).start()
+
+    def cumleyi_oku(self):
+
+        if self.almanca:
+            self.sesi_oku(self.almanca)
 
     def cumleleri_yukle(self):
 
@@ -132,10 +175,16 @@ class Uygulama:
 
                     if "|" in satir:
 
-                        almanca, turkce = satir.split("|", 1)
+                        almanca, turkce = satir.split(
+                            "|",
+                            1
+                        )
 
                         self.cumleler.append(
-                            (almanca, turkce)
+                            (
+                                almanca,
+                                turkce
+                            )
                         )
 
         except FileNotFoundError:
@@ -154,7 +203,6 @@ class Uygulama:
         )
 
         self.cumleleri_yukle()
-
         self.yeni_soru()
 
     def temizle(self, metin):
@@ -162,9 +210,9 @@ class Uygulama:
         metin = metin.lower().strip()
 
         for karakter in [
-            ".", ",", "!", "?", ";", ":"
+            ".", ",", "!", "?",
+            ";", ":", "'", '"'
         ]:
-
             metin = metin.replace(
                 karakter,
                 ""
@@ -195,14 +243,20 @@ class Uygulama:
             tk.END
         )
 
+        self.sesi_oku(self.almanca)
+
     def istatistik_guncelle(self):
 
-        toplam = self.dogru_sayisi + self.yanlis_sayisi
+        toplam = (
+            self.dogru_sayisi +
+            self.yanlis_sayisi
+        )
 
         if toplam > 0:
 
             basari = (
-                self.dogru_sayisi / toplam
+                self.dogru_sayisi /
+                toplam
             ) * 100
 
         else:
@@ -210,9 +264,10 @@ class Uygulama:
             basari = 0
 
         self.istatistik_label.config(
-            text=f"Doğru: {self.dogru_sayisi} | "
-                 f"Yanlış: {self.yanlis_sayisi} | "
-                 f"Başarı: %{basari:.1f}"
+            text=
+            f"Doğru: {self.dogru_sayisi} | "
+            f"Yanlış: {self.yanlis_sayisi} | "
+            f"Başarı: %{basari:.1f}"
         )
 
     def kontrol(self):
@@ -228,7 +283,6 @@ class Uygulama:
         if cevap == dogru:
 
             self.puan += 10
-
             self.dogru_sayisi += 1
 
             self.sonuc.config(
